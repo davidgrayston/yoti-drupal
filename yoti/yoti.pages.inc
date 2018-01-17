@@ -122,7 +122,7 @@ function yoti_register($form, &$form_state) {
     '#default_value' => variable_get('yoti_nolink'),
     '#markup' => '<div class="form-item form-type-checkbox form-item-yoti-link messages warning" style="margin: 0 0 15px 0">
                 <div><b>Warning: You are about to link your ' . $companyName . ' account to your Yoti account. If you don\'t want this to happen, tick the checkbox below.</b></div>
-                <input type="checkbox" id="edit-yoti-link" name="yoti_nolink" value="1" class="form-checkbox"' . (!empty($form_state['values']['yoti_nolink']) ? ' checked="checked"' : '') . '>
+                <input type="checkbox" id="edit-yoti-link" name="yoti_nolink" value="1" class="form-checkbox"' . (!empty($form_state['input']['yoti_nolink']) ? ' checked="checked"' : '') . '>
                 <label class="option" for="edit-yoti-link">Don\'t link my Yoti account</label>
             </div>',
   ];
@@ -140,6 +140,6 @@ function yoti_register($form, &$form_state) {
  * Process user registration form.
  */
 function yoti_register_submit($form, &$form_state) {
-  $_SESSION['yoti_nolink'] = !empty($form_state['values']['yoti_nolink']);
+  $_SESSION['yoti_nolink'] = !empty($form_state['input']['yoti_nolink']);
   user_login_submit($form, $form_state);
 }
