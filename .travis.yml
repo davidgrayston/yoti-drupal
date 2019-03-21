@@ -1,0 +1,4 @@
+jobs:
+  include:
+    - name: test
+      script: cd docker && ./install-drupal.sh && ./run-tests.sh
